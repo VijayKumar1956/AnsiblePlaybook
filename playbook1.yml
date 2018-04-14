@@ -1,0 +1,15 @@
+---
+- name: Creating a directory and copying a file into it
+  hosts: all
+  tasks:
+   - name: Creating a directory
+     file:
+      name: folder2
+      state: directory
+   - name: Copying a file into created directory
+     copy:
+      src: /etc/passwd
+      dest: /home/vagrant/folder2
+
+
+...
