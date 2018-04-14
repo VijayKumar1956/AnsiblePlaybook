@@ -1,0 +1,18 @@
+---
+- name: Create a user on all managed nodes & Capture usernames, home directories into a file called userinfo and fetch that file into controller
+  hosts: all
+  tasks:
+   - name: Creating user
+     user:
+      name: jaggu
+      password: jaggu
+      home: /home/vagrant/jaggu
+   - name: Capturing user home, directory info
+     shell: cut -d ':' -f 1,6 /etc/passwd > userinfo
+   - name: Fetching userinfo file
+     fetch:
+      src: userinfo
+      dest: /home/vagrant
+
+
+...
