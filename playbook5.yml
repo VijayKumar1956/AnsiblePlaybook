@@ -1,0 +1,12 @@
+---
+- name: Installing/Uninstalling packages using Global scope variables
+  hosts: dbserver
+  tasks:
+   - name: Install/Uninstall packages
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+
+
+...
