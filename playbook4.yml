@@ -1,0 +1,20 @@
+---
+- name: Working on multiple hosts
+  hosts: lb
+  tasks:
+   - name: Installing tree
+     apt:
+      name: tree
+      state: present
+      update_cache: yes
+
+- name: Working on Webserver group
+  hosts: webservers
+  tasks:  
+   - name: Creating users
+     user:
+      name: vinny
+      password: vinny
+
+
+...
