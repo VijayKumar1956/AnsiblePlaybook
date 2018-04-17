@@ -1,0 +1,13 @@
+---
+- name: Creating files or directories by using global scope variables
+  hosts: all
+  tasks:
+   - name: Creating file or directory based on user input
+     file:
+      name: "{{a}}"
+      state: "{{b}}"
+      owner: "{{c}}"
+      group: "{{d}}"
+      mode: "{{e}}"
+
+...
