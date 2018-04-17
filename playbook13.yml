@@ -1,0 +1,17 @@
+---
+- name: Creating directory and displaying the output
+  hosts: webservers
+  tasks:
+   - name: Creating directory
+     file:
+      name: debugfolder
+      state: directory
+      owner: vagrant
+      group: root
+      mode: 755
+     register: results
+   - name: Displaying the output
+     debug:
+      var: results
+
+...
