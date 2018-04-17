@@ -1,0 +1,25 @@
+---
+- name: Creating multiple users and files or directories using loops
+  hosts: all
+  tasks:
+   - name: Creating Users
+     user:
+      name: "{{item.a}}"
+      password: "{{item.b}}"
+      home: "{{item.c}}"
+      shell: "{{item.d}}"
+     with_items:
+      - {a: VJ, b: vjv, c: /home/VJ, d: /bin/bash}
+      - {a: JG, b: vjv, c: /home/JG, d: /bin/bash}
+      - {a: VN, b: vjv, c: /home/VN, d: /bin/bash}
+
+   - name: Creating files or directories
+     file:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+     with_items:
+      - {a: /home/VJ/dir1, b: directory}
+      - {a: /home/JG/file1, b: touch}
+      - {a: /home/VN/file1, b: touch} 
+
+...
