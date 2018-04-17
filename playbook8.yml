@@ -1,0 +1,13 @@
+---
+- name: Using group based host scope variables to create user
+  hosts: webservers
+  tasks:
+   - name: Creating user accounts
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+      shell: "{{d}}"
+
+
+...
