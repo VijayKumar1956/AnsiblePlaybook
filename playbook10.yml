@@ -1,0 +1,16 @@
+---
+- name: Installing multiple package using loops
+  hosts: 10.10.10.95
+  tasks:
+   - name: Installing git, apache2, tree
+     apt:
+      name: "{{item}}"
+      state: present
+      update_cache: no
+     with_items:
+      - git
+      - apache2
+      - tree
+
+
+...
