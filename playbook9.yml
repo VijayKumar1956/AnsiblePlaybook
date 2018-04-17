@@ -1,0 +1,12 @@
+---
+- name: Using specific host scope variables using host_vars and file name is IP
+  hosts: 10.10.10.94
+  tasks:
+   - name: Creating file
+     file:
+      name: "{{a}}"
+      state: "{{b}}"
+
+
+
+...
