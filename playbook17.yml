@@ -1,0 +1,29 @@
+---
+- name: Using tags module for other modules
+  hosts: all
+  tasks:
+   - name: Installing tree
+     apt:
+      state: present
+      update_cache: no
+     tags:
+      tree_installation
+   - name: Copying group file
+     copy:
+      src: /etc/group
+      dest: /tmp/group1
+     tags:
+      copying_group
+   - name: User creation
+     user:
+      name: Riky
+      password: 1 
+
+
+# ansible-playbook playbook17.yml --syntax-check
+# ansible-playbook playbook17.yml --tags=tagged -b
+# ansible-playbook playbook17.yml --tags=untagged -b
+# ansible-playbook playbook17.yml --tags=copying_group -b
+# ansible-playbook playbook17.yml -b
+
+...
