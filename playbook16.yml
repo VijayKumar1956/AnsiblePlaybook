@@ -1,0 +1,22 @@
+# Create an ansible playbook for checking if a directory is present, in case directory is present it should create a file in directory
+
+---
+- name: Checking if a directory is present and if present creating file
+  hosts: all
+  tasks:
+   - name: Checking if a directory is present 
+     stat:
+      path: /home/JG
+     register: results
+   - name: Display output of the above module
+     debug:
+      var: results
+   - name: Creating a file if above mentioned folder exists
+     file:
+      name: /home/JG/jaggu
+      state: touch
+     when:
+      results.stat.exists == true
+
+
+...
