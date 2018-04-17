@@ -9,5 +9,7 @@
       owner: "{{c}}"
       group: "{{d}}"
       mode: "{{e}}"
+# ansible-playbook playbook6.yml --extra-vars "a=sai1 b=touch c=ubuntu d=ubuntu e=755" -b
 
+# ansible-playbook playbook6.yml --extra-vars "a=sai1 b=touch c=vagrant d=vagrant e=755" 
 ...
