@@ -1,0 +1,13 @@
+---
+- name: Checking whether a dir is present or not using stat module
+  hosts: all
+  tasks:
+   - name: Checking whether directory is present or not`
+     stat:
+      path: /home/vagrant
+     register: results
+   - name: Diplaying registered output
+     debug:
+       var: results
+
+...
