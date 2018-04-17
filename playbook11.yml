@@ -1,0 +1,15 @@
+---
+- name: Installing/Uninstalling packages with loops using different values
+  hosts: 10.10.10.95
+  tasks:
+   - name: Installing/Uninstalling packages
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: tree, b: absent, c: yes}
+      - {a: git, b: latest, c: no}
+      - {a: apache2, b: absent, c: no}
+
+...
