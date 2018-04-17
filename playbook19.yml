@@ -1,0 +1,9 @@
+---
+- name: Calling other playbooks using include module
+  hosts: 10.10.10.93
+  tasks:
+   - name: Calling other playbook playbook18_installingGit.yml
+     include:
+       playbook18_installingGit.yml
+
+...
